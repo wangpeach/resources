@@ -30,17 +30,17 @@ var analy = function(el) {
     input.setSelectionRange(0, objstr.length);
     input.select();
 
-    setTimeout(function() {
-        if (document.execCommand('Copy')) {
-            document.execCommand('Copy');
-            el.innerHTML = '<span style="color: YELLOWGREEN; font-size: 13px;">点击解析(解析成功)</span>';
-            layer.msg('解析成功', { icon: 1 });
-        } else {
-            el.innerHTML = '<span style="color: lightcoral; font-size: 13px;">点击解析(解析失败)</span>';
-            layer.msg('解析失败', { icon: 2 });
-        }
-        document.body.removeChild(input);
-    }, 1000)
+
+    if (document.execCommand('Copy')) {
+        document.execCommand('Copy');
+        el.innerHTML = '<span style="color: AQUAMARINE; font-size: 13px;">点击解析(解析成功)</span>';
+        layer.msg('解析成功', { icon: 1 });
+    } else {
+        el.innerHTML = '<span style="color: MINTCREAM; font-size: 13px;">点击解析(解析失败)</span>';
+        layer.msg('解析失败', { icon: 2 });
+    }
+    document.body.removeChild(input);
+
 }
 
 
@@ -49,6 +49,7 @@ window.onload = function() {
 
     var copybtn = document.createElement('a');
     copybtn.setAttribute('class', 'do-purchase');
+    copybtn.setAttribute('style', 'margin-top: 10px');
     copybtn.innerHTML = '<span>点击解析</span>'
     copybtn.onclick = function() {
         analy(copybtn);
@@ -66,8 +67,11 @@ window.onload = function() {
         if (cury >= docheight) {
             window.scrollTo(0, 0);
             clearInterval(interval);
-            // analy(copybtn);
-            copybtn.click();
+            
+            setTimeout(function() {
+                // copybtn.click();
+                analy(copybtn);
+            }, 1000)
         }
     }, 30);
 };
