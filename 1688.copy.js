@@ -33,15 +33,16 @@ window.onload = function () {
         input.setAttribute('readonly', 'readonly');
         input.setAttribute('value', objstr);
         document.body.appendChild(input);
-        input.setSelectionRange(0, objstr.length);
+        // input.setSelectionRange(0, objstr.length);
+        input.select();
         
-        if (document.execCommand('copy')) {
-            document.execCommand('copy');
+        if (document.execCommand('Copy')) {
+            document.execCommand('Copy');
             console.log('复制成功');
         }
         console.log(objs);
 
-        document.body.removeChild(input);
+        // document.body.removeChild(input);
     }
 
     var action_panel = document.getElementsByClassName('unit-detail-order-action');
