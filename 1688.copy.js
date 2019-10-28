@@ -27,6 +27,19 @@ window.onload = function () {
             skuMap: iDetailData.sku.skuMap
         };
 
+        var objstr = JSON.stringify(objs);
+
+        var input = document.createElement('input');
+        input.setAttribute('type', 'hidden');
+        input.setAttribute('readonly', 'readonly');
+        input.setAttribute('value', objstr);
+        document.body.appendChild(input);
+        input.setSelectionRange(0, objstr.length);
+        
+        if (document.execCommand('copy')) {
+            document.execCommand('copy');
+            console.log('复制成功');
+        }
         console.log(objs);
     }
 
