@@ -20,7 +20,7 @@ window.onload = function () {
 
         objs.title = title;
         objs.imgs = imgs;
-        objs.description = description.replace(/\n\t/g,"<br>");
+        objs.description = description.replace(/\n\t/g,"");
 
         objs.sku = {
             skuProps: iDetailData.sku.skuProps,
