@@ -1,9 +1,10 @@
 
 window.onload = function () {
-    var copybtn = '<a class="distribute-to-cross-border" title="复制" rel="nofollow"></a>';
+    var action_panel = document.getElementsByClassName('unit-detail-order-action');
+
     var copybtn = document.createElement('a');
     copybtn.setAttribute('class', 'distribute-to-cross-border');
-    copybtn.innerHTML = '<span>复制</span>'
+    copybtn.innerHTML = '<span>解析</span>'
     copybtn.onclick = function() {
         var objs = {};
 
@@ -17,7 +18,7 @@ window.onload = function () {
         });
 
         
-
+        objs.url = location.href;
         objs.title = title;
         objs.imgs = imgs;
         objs.description = description.replace(/\n\t/g,"");
@@ -38,13 +39,12 @@ window.onload = function () {
         
         if (document.execCommand('Copy')) {
             document.execCommand('Copy');
-            console.log('复制成功');
+            this.innerHTML = '<span style="color: YELLOWGREEN;">解析成功</span>';
+        } else {
+            this.innerHTML = '<span style="color: lightcoral;">解析失败</span>';
         }
-        console.log(objs);
-
-        // document.body.removeChild(input);
+        document.body.removeChild(input);
     }
 
-    var action_panel = document.getElementsByClassName('unit-detail-order-action');
     action_panel[0].appendChild(copybtn);
 };
