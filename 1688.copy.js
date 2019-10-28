@@ -1,5 +1,5 @@
 
-document.onload(function () {
+document.onload = function () {
     var copybtn = '<a class="distribute-to-cross-border" title="复制" rel="nofollow">复制</a>';
     var copybtn = document.createElement('a');
     copybtn.setAttribute('class', 'distribute-to-cross-border');
@@ -10,5 +10,5 @@ document.onload(function () {
     }
 
     var action_panel = document.getElementsByClassName('unit-detail-order-action');
-    action_panel.appendChind(copybtn);
-});
+    action_panel.appendChind(copybtn);   
+};
