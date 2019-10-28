@@ -52,11 +52,11 @@ window.onload = function () {
     var docheight = 0, cury = 0;
     var interval = setInterval(function() {
         docheight = contentWrap.scrollHeight;
-        cury += 100;
+        cury += 200;
         contentWrap.scrollTo(0, cury);
         if(cury >= docheight) {
             contentWrap.scrollTo(0, 0);
             clearInterval(interval);
         }
-    }, 200);
+    }, 100);
 };
