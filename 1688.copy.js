@@ -48,13 +48,14 @@ window.onload = function () {
 
     action_panel[0].appendChild(copybtn);
 
+    var contentWrap = document.querySelector(".content-wrap");
     var docheight = 0, cury = 0;
     var interval = setInterval(function() {
-        docheight = document.body.scrollHeight;
+        docheight = contentWrap.scrollHeight;
         cury += 100;
-        document.body.scrollTo(0, cury);
+        contentWrap.scrollTo(0, cury);
         if(cury >= docheight) {
-            this.document.scrollTo(0, 0);
+            contentWrap.scrollTo(0, 0);
             clearInterval(interval);
         }
     }, 200);
