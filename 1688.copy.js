@@ -40,7 +40,7 @@ var analy = function(el) {
             layer.msg('解析失败', { icon: 2 });
         }
         document.body.removeChild(input);
-    }, 800)
+    }, 1000)
 }
 
 
@@ -66,7 +66,8 @@ window.onload = function() {
         if (cury >= docheight) {
             window.scrollTo(0, 0);
             clearInterval(interval);
-            analy(copybtn);
+            // analy(copybtn);
+            copybtn.click();
         }
-    }, 10);
+    }, 30);
 };
