@@ -30,15 +30,17 @@ var analy = function(el) {
     input.setSelectionRange(0, objstr.length);
     input.select();
 
-    if (document.execCommand('Copy')) {
-        document.execCommand('Copy');
-        el.innerHTML = '<span style="color: YELLOWGREEN;">点击解析(解析成功)</span>';
-        layer.msg('解析成功', {icon: 1}); 
-    } else {
-        el.innerHTML = '<span style="color: lightcoral;">点击解析(解析失败)</span>';
-        layer.msg('解析失败', {icon: 1}); 
-    }
-    document.body.removeChild(input);
+    setTimeout(function() {
+        if (document.execCommand('Copy')) {
+            document.execCommand('Copy');
+            el.innerHTML = '<span style="color: YELLOWGREEN; font-size: 13px;">点击解析(解析成功)</span>';
+            layer.msg('解析成功', { icon: 1 });
+        } else {
+            el.innerHTML = '<span style="color: lightcoral; font-size: 13px;">点击解析(解析失败)</span>';
+            layer.msg('解析失败', { icon: 2 });
+        }
+        document.body.removeChild(input);
+    }, 800)
 }
 
 
@@ -49,7 +51,7 @@ window.onload = function() {
     copybtn.setAttribute('class', 'distribute-to-cross-border');
     copybtn.innerHTML = '<span>解析</span>'
     copybtn.onclick = function() {
-    	analy(copybtn);
+        analy(copybtn);
     }
 
     action_panel[0].appendChild(copybtn);
