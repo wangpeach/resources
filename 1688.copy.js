@@ -52,7 +52,7 @@ window.onload = function () {
     var interval = setInterval(function() {
         docheight = document.body.scrollHeight;
         cury += 100;
-        this.document.scrollTo(0, cury);
+        document.body.scrollTo(0, cury);
         if(cury >= docheight) {
             this.document.scrollTo(0, 0);
             clearInterval(interval);
