@@ -53,9 +53,9 @@ window.onload = function () {
     var interval = setInterval(function() {
         docheight = contentWrap.scrollHeight;
         cury += 200;
-        contentWrap.scrollTo(0, cury);
+        window.scrollTo(0, cury);
         if(cury >= docheight) {
-            contentWrap.scrollTo(0, 0);
+            window.scrollTo(0, 0);
             clearInterval(interval);
         }
     }, 100);
