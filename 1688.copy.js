@@ -9,14 +9,24 @@ window.onload = function () {
 
         var title =  document.querySelector('#mod-detail-title>h1').innerText;
         var imgprops = document.querySelectorAll("#dt-tab li img:not([data-lazy-src])");
+        var description = document.querySelector('#de-description-detail').innerHTML;
 
         var imgs = new Array();
         imgprops.forEach(element => {
             imgs.push(element.getAttribute('src'));
         });
 
+        
+
         objs.title = title;
         objs.imgs = imgs;
+        objs.description = description;
+
+        objs.sku = {
+            skuProps: iDetailData.sku.skuProps,
+            skuMap: iDetailData.sku.skuMap
+        };
+
         console.log(objs);
     }
 
