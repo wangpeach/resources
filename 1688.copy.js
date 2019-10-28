@@ -48,7 +48,9 @@ window.onload = function() {
     var copybtn = document.createElement('a');
     copybtn.setAttribute('class', 'distribute-to-cross-border');
     copybtn.innerHTML = '<span>解析</span>'
-    copybtn.onclick = analy();
+    copybtn.onclick = function() {
+    	analy();
+    }
 
     action_panel[0].appendChild(copybtn);
 
