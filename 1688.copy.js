@@ -48,8 +48,8 @@ window.onload = function() {
     var action_panel = document.getElementsByClassName('unit-detail-order-action');
 
     var copybtn = document.createElement('a');
-    copybtn.setAttribute('class', 'distribute-to-cross-border');
-    copybtn.innerHTML = '<span>解析</span>'
+    copybtn.setAttribute('class', 'do-cart');
+    copybtn.innerHTML = '<span>点击解析</span>'
     copybtn.onclick = function() {
         analy(copybtn);
     }
