@@ -10,5 +10,5 @@ window.onload = function () {
     }
 
     var action_panel = document.getElementsByClassName('unit-detail-order-action');
-    action_panel.appendChind(copybtn);   
+    action_panel[0].appendChind(copybtn);
 };
