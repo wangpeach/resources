@@ -47,4 +47,15 @@ window.onload = function () {
     }
 
     action_panel[0].appendChild(copybtn);
+
+    var docheight = 0, cury = 0;
+    var interval = setInterval(function() {
+        docheight = document.body.scrollHeight;
+        cury += 100;
+        this.document.scrollTo(0, cury);
+        if(cury >= docheight) {
+            this.document.scrollTo(0, 0);
+            clearInterval(interval);
+        }
+    }, 200);
 };
