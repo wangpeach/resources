@@ -14,7 +14,7 @@ window.onload = function () {
 
         var imgs = new Array();
         imgprops.forEach(element => {
-            imgs.push(element.getAttribute('src'));
+            imgs.push(element.getAttribute('src').replace("60x60", "460x460"));
         });
 
         
