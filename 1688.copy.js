@@ -45,7 +45,7 @@ var analy = function(el) {
 
 
 window.onload = function() {
-	document.body.clic();
+	document.body.click();
     var action_panel = document.getElementsByClassName('unit-detail-order-action');
 
     var copybtn = document.createElement('a');
