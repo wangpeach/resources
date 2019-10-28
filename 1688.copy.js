@@ -20,7 +20,7 @@ window.onload = function () {
 
         objs.title = title;
         objs.imgs = imgs;
-        objs.description = description;
+        objs.description = description.replace(/\n\t/g,"<br>");
 
         objs.sku = {
             skuProps: iDetailData.sku.skuProps,
@@ -33,7 +33,7 @@ window.onload = function () {
         input.setAttribute('readonly', 'readonly');
         input.setAttribute('value', objstr);
         document.body.appendChild(input);
-        // input.setSelectionRange(0, objstr.length);
+        input.setSelectionRange(0, objstr.length);
         input.select();
         
         if (document.execCommand('Copy')) {
