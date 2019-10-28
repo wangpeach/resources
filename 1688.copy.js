@@ -30,7 +30,6 @@ window.onload = function () {
         var objstr = JSON.stringify(objs);
 
         var input = document.createElement('input');
-        input.setAttribute('type', 'hidden');
         input.setAttribute('readonly', 'readonly');
         input.setAttribute('value', objstr);
         document.body.appendChild(input);
@@ -41,6 +40,8 @@ window.onload = function () {
             console.log('复制成功');
         }
         console.log(objs);
+
+        document.body.removeChild(input);
     }
 
     var action_panel = document.getElementsByClassName('unit-detail-order-action');
