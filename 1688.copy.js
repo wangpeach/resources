@@ -66,7 +66,7 @@ window.onload = function() {
         cury += 200;
         window.scrollTo(0, cury);
         if (cury >= docheight) {
-            window.scrollTo(0, 20);
+            window.scrollTo(0, 80);
             clearInterval(interval);
             
             setTimeout(function() {
