@@ -48,7 +48,7 @@ window.onload = function() {
     var action_panel = document.getElementsByClassName('unit-detail-order-action');
 
     var copybtn = document.createElement('a');
-    copybtn.setAttribute('class', 'do-cart');
+    copybtn.setAttribute('class', 'do-purchase');
     copybtn.innerHTML = '<span>点击解析</span>'
     copybtn.onclick = function() {
         analy(copybtn);
