@@ -1,5 +1,5 @@
 
-document.onload = function () {
+window.onload = function () {
     var copybtn = '<a class="distribute-to-cross-border" title="复制" rel="nofollow">复制</a>';
     var copybtn = document.createElement('a');
     copybtn.setAttribute('class', 'distribute-to-cross-border');
