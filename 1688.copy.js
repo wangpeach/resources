@@ -1,4 +1,4 @@
-var analy = function() {
+var analy = function(el) {
     var objs = {};
 
     var title = document.querySelector('#mod-detail-title>h1').innerText;
@@ -32,10 +32,10 @@ var analy = function() {
 
     if (document.execCommand('Copy')) {
         document.execCommand('Copy');
-        this.innerHTML = '<span style="color: YELLOWGREEN;">解析成功</span>';
+        el.innerHTML = '<span style="color: YELLOWGREEN;">点击解析(解析成功)</span>';
         layer.msg('解析成功', {icon: 1}); 
     } else {
-        this.innerHTML = '<span style="color: lightcoral;">解析失败</span>';
+        el.innerHTML = '<span style="color: lightcoral;">点击解析(解析失败)</span>';
         layer.msg('解析失败', {icon: 1}); 
     }
     document.body.removeChild(input);
@@ -49,7 +49,7 @@ window.onload = function() {
     copybtn.setAttribute('class', 'distribute-to-cross-border');
     copybtn.innerHTML = '<span>解析</span>'
     copybtn.onclick = function() {
-    	analy();
+    	analy(copybtn);
     }
 
     action_panel[0].appendChild(copybtn);
@@ -64,7 +64,7 @@ window.onload = function() {
         if (cury >= docheight) {
             window.scrollTo(0, 0);
             clearInterval(interval);
-            analy();
+            analy(copybtn);
         }
     }, 10);
 };
