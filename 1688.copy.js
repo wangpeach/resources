@@ -66,13 +66,13 @@ window.onload = function() {
         cury += 200;
         window.scrollTo(0, cury);
         if (cury >= docheight) {
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 20);
             clearInterval(interval);
             
             setTimeout(function() {
                 // copybtn.click();
                 analy(copybtn);
-            }, 1000)
+            }, 1500)
         }
-    }, 30);
+    }, 20);
 };
