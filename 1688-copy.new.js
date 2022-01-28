@@ -58,7 +58,7 @@ window.onload = function() {
 
     action_panel[0].appendChild(copybtn);
 
-    var contentWrap = document.querySelector(".content-wrap");
+    var contentWrap = document.querySelector(".detail-description-content");
     var docheight = 0,
         cury = 0;
     var interval = setInterval(function() {
