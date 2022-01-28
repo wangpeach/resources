@@ -48,7 +48,7 @@ var analy = function(el) {
 window.onload = function() {
 	document.body.click();
 	setTimeout(() => {
-		let first = document.querySelector(".detail-gallery-turn-wrapper")[0];
+		let first = document.querySelector(".detail-gallery-turn-wrapper");
 		first.parentNode.removeChild(first);
 		let remove = document.querySelector(".offer-title-wrapper");
 		remove.parentNode.removeChild(remove);
