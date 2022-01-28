@@ -52,7 +52,7 @@ window.onload = function() {
 		first.parentNode.removeChild(first);
 		let remove = document.querySelector(".offer-title-wrapper");
 		remove.parentNode.removeChild(remove);
-	    var action_panel = document.getElementsByClassName('order-button-wrapper');
+	    var action_panel = document.getElementsByClassName('detail-affix-sku-wrapper');
 
 
 	    var copybtn = document.createElement('button');
