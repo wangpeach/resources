@@ -1,9 +1,10 @@
 var analy = function(el) {
     var objs = {};
 
-    var title = document.querySelector('#mod-detail-title>h1').innerText;
-    var imgprops = document.querySelectorAll("#dt-tab li img:not([data-lazy-src])");
-    var description = document.querySelector('#de-description-detail').innerHTML;
+    var title = document.querySelector('.title-text').innerText;
+    var imgprops = document.querySelectorAll(".detail-gallery-img:not([data-lazy-src])");
+    var description = document.querySelector('.od-pc-detail-description').innerHTML;
+	
 
     var imgs = new Array();
     imgprops.forEach(element => {
@@ -46,6 +47,8 @@ var analy = function(el) {
 
 window.onload = function() {
 	document.body.click();
+	let remove = document.querySelector(".offer-title-wrapper");
+	remove.parentNode.removeChild(div);
     var action_panel = document.getElementsByClassName('order-button-children-list');
 
     var copybtn = document.createElement('a');
@@ -58,7 +61,7 @@ window.onload = function() {
 
     action_panel[0].appendChild(copybtn);
 
-    var contentWrap = document.querySelector(".detail-description-content");
+    var contentWrap = document.querySelector(".od-pc-detail-description");
     var docheight = 0,
         cury = 0;
     var interval = setInterval(function() {
