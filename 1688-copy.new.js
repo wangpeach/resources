@@ -47,8 +47,11 @@ var analy = function(el) {
 
 window.onload = function() {
 	document.body.click();
+	
+	let first = document.querySelector(".detail-gallery-turn-wrapper")[0];
+	first.parentNode.removeChild(first);
 	let remove = document.querySelector(".offer-title-wrapper");
-	remove.parentNode.removeChild(div);
+	remove.parentNode.removeChild(remove);
     var action_panel = document.getElementsByClassName('order-button-children-list');
 
     var copybtn = document.createElement('a');
