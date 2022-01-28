@@ -47,38 +47,40 @@ var analy = function(el) {
 
 window.onload = function() {
 	document.body.click();
+	setTimeout(() => {
+		let first = document.querySelector(".detail-gallery-turn-wrapper")[0];
+		first.parentNode.removeChild(first);
+		let remove = document.querySelector(".offer-title-wrapper");
+		remove.parentNode.removeChild(remove);
+	    var action_panel = document.getElementsByClassName('order-button-children-list');
+
+	    var copybtn = document.createElement('a');
+	    copybtn.setAttribute('class', 'do-purchase');
+	    copybtn.setAttribute('style', 'margin-top: 10px');
+	    copybtn.innerHTML = '<span>点击解析</span>'
+	    copybtn.onclick = function() {
+		analy(copybtn);
+	    }
+
+	    action_panel[0].appendChild(copybtn);
+
+	    var contentWrap = document.querySelector(".od-pc-detail-description");
+	    var docheight = 0,
+		cury = 0;
+	    var interval = setInterval(function() {
+		docheight = contentWrap.scrollHeight;
+		cury += 200;
+		window.scrollTo(0, cury);
+		if (cury >= docheight) {
+		    window.scrollTo(0, 150);
+		    clearInterval(interval);
+
+		    setTimeout(function() {
+			// copybtn.click();
+			analy(copybtn);
+		    }, 1500)
+		}
+	    }, 20);
+	}, 1500)
 	
-	let first = document.querySelector(".detail-gallery-turn-wrapper")[0];
-	first.parentNode.removeChild(first);
-	let remove = document.querySelector(".offer-title-wrapper");
-	remove.parentNode.removeChild(remove);
-    var action_panel = document.getElementsByClassName('order-button-children-list');
-
-    var copybtn = document.createElement('a');
-    copybtn.setAttribute('class', 'do-purchase');
-    copybtn.setAttribute('style', 'margin-top: 10px');
-    copybtn.innerHTML = '<span>点击解析</span>'
-    copybtn.onclick = function() {
-        analy(copybtn);
-    }
-
-    action_panel[0].appendChild(copybtn);
-
-    var contentWrap = document.querySelector(".od-pc-detail-description");
-    var docheight = 0,
-        cury = 0;
-    var interval = setInterval(function() {
-        docheight = contentWrap.scrollHeight;
-        cury += 200;
-        window.scrollTo(0, cury);
-        if (cury >= docheight) {
-            window.scrollTo(0, 150);
-            clearInterval(interval);
-            
-            setTimeout(function() {
-                // copybtn.click();
-                analy(copybtn);
-            }, 1500)
-        }
-    }, 20);
 };
