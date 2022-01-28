@@ -62,7 +62,7 @@ window.onload = function() {
 		analy(copybtn);
 	    }
 
-	    action_panel[0].appendChild(copybtn);
+	    action_panel.appendChild(copybtn);
 
 	    var contentWrap = document.querySelector(".od-pc-detail-description");
 	    var docheight = 0,
