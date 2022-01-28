@@ -17,10 +17,10 @@ var analy = function(el) {
     objs.imgs = imgs;
     objs.description = description.replace(/\n\t/g, "");
 
-    objs.sku = {
-        skuProps: iDetailData.sku.skuProps,
-        skuMap: iDetailData.sku.skuMap
-    };
+    // objs.sku = {
+    //     skuProps: iDetailData.sku.skuProps,
+    //     skuMap: iDetailData.sku.skuMap
+    // };
 
     var objstr = JSON.stringify(objs);
 
