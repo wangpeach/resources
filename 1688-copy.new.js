@@ -54,15 +54,16 @@ window.onload = function() {
 		remove.parentNode.removeChild(remove);
 	    var action_panel = document.getElementsByClassName('order-button-children-list');
 
+
 	    var copybtn = document.createElement('div');
 	    copybtn.setAttribute('class', 'do-purchase');
-	    copybtn.setAttribute('style', 'margin-top: 10px;');
+	    copybtn.setAttribute('style', 'margin-top: 10px;border: 1px solid red;background: black;width: 180px;height: 40px;line-height: 40px;text-align: center;');
 	    copybtn.innerHTML = '<span>点击解析</span>'
 	    copybtn.onclick = function() {
 		analy(copybtn);
 	    }
 
-	    action_panel[0].appendChild(copybtn);
+	    action_panel[0].parentNode.appendChild(copybtn);
 
 	    var contentWrap = document.querySelector(".od-pc-detail-description");
 	    var docheight = 0,
