@@ -52,10 +52,10 @@ window.onload = function() {
 		first.parentNode.removeChild(first);
 		let remove = document.querySelector(".offer-title-wrapper");
 		remove.parentNode.removeChild(remove);
-	    var action_panel = document.getElementsByClassName('order-button-children-list');
+	    var action_panel = document.getElementsByClassName('order-button-wrapper');
 
 
-	    var copybtn = document.createElement('div');
+	    var copybtn = document.createElement('button');
 	    copybtn.setAttribute('class', 'do-purchase');
 	    copybtn.setAttribute('style', 'margin-top: 10px;border: 1px solid red;background: black;width: 180px;height: 40px;line-height: 40px;text-align: center;');
 	    copybtn.innerHTML = '<span>点击解析</span>'
