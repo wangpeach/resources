@@ -1,5 +1,3 @@
-const { IgnorePlugin } = require("webpack");
-
 var analy = function (el) {
     var objs = {};
 
