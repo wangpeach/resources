@@ -58,32 +58,32 @@ var analy = function (el) {
 
 function ready() {
     jQuery(document).ready(function () {
-    document.body.click();
+        document.body.click();
 
-    var copybtn = document.createElement('a');
-    copybtn.classList.add('tool-item');
-    copybtn.innerHTML = '<span class="tool-item-text">点击</span><span class="tool-item-text">解析</span>';
-    copybtn.onclick = function () {
-        analy(copybtn);
-    }
-
-    var contentWrap = document.querySelector(".content-wrap");
-    var docheight = 0,
-        cury = 0;
-    var interval = setInterval(function () {
-        docheight = contentWrap.scrollHeight;
-        cury += 200;
-        window.scrollTo(0, cury);
-        if (cury >= docheight) {
-            window.scrollTo(0, 150);
-            clearInterval(interval);
-
-            setTimeout(function () {
-                // copybtn.click();
-                analy(copybtn);
-            }, 1500)
+        var copybtn = document.createElement('a');
+        copybtn.classList.add('tool-item');
+        copybtn.innerHTML = '<span class="tool-item-text">点击</span><span class="tool-item-text">解析</span>';
+        copybtn.onclick = function () {
+            analy(copybtn);
         }
-    }, 20);
+
+        var contentWrap = document.body;
+        var docheight = 0,
+            cury = 0;
+        var interval = setInterval(function () {
+            docheight = contentWrap.scrollHeight;
+            cury += 200;
+            window.scrollTo(0, cury);
+            if (cury >= docheight) {
+                window.scrollTo(0, 150);
+                clearInterval(interval);
+
+                setTimeout(function () {
+                    // copybtn.click();
+                    analy(copybtn);
+                }, 1500)
+            }
+        }, 20);
     });
 }
 
