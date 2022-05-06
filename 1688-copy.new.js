@@ -1,15 +1,27 @@
-var analy = function(el) {
+var analy = function (el) {
     var objs = {};
 
-    var title = document.querySelector('.title-text').innerText;
-    var imgprops = document.querySelectorAll(".detail-gallery-img:not([data-lazy-src])");
-    var description = document.querySelector('.od-pc-detail-description').innerHTML;
-	
+    let data = window.__INIT_DATA.data;
+    let good = window.__INIT_DATA.globalData;
+
+    var title = good.tempModel.offerTitle.replace('一件代发', '');;
+
+    let detail = document.querySelector('.content-detail');
+    let allImg = document.querySelectorAll('.content-detail img');
+    detail.innerHTML = '';
+    for (const item of allImg) {
+        detail.append(item);
+        detail.append(document.createElement('br'));
+    }
+
+    let description = detail.innerHTML;
+
+    objs.description = description.replace(/\n\t/g, "");
 
     var imgs = new Array();
-    imgprops.forEach(element => {
-        imgs.push(element.getAttribute('src').replace("60x60", "460x460"));
-    });
+    for (const item of good.images) {
+        imgs.push(item.fullPathImageURI);
+    }
 
 
     objs.url = location.href;
@@ -17,10 +29,10 @@ var analy = function(el) {
     objs.imgs = imgs;
     objs.description = description.replace(/\n\t/g, "");
 
-    // objs.sku = {
-    //     skuProps: iDetailData.sku.skuProps,
-    //     skuMap: iDetailData.sku.skuMap
-    // };
+    objs.sku = {
+        skuProps: iDetailData.sku.skuProps,
+        skuMap: iDetailData.sku.skuMap
+    };
 
     var objstr = JSON.stringify(objs);
 
@@ -45,43 +57,57 @@ var analy = function(el) {
 }
 
 
-window.onload = function() {
-	document.body.click();
-	setTimeout(() => {
-		let first = document.querySelector(".detail-gallery-turn-wrapper");
-		first.parentNode.removeChild(first);
-		let remove = document.querySelector(".offer-title-wrapper");
-		remove.parentNode.removeChild(remove);
-	    var action_panel = document.getElementsByClassName('detail-affix-sku-wrapper');
+window.onload = function () {
+    document.body.click();
 
+    var copybtn = document.createElement('a');
+    copybtn.classList.add('tool-item');
+    copybtn.innerHTML = '<span class="tool-item-text">点击</span><span class="tool-item-text">解析</span>';
+    copybtn.onclick = function () {
+        analy(copybtn);
+    }
 
-	    var copybtn = document.createElement('button');
-	    copybtn.setAttribute('class', 'do-purchase');
-	    copybtn.setAttribute('style', 'margin-top: 10px;border: 1px solid red;background: black;width: 180px;height: 40px;line-height: 40px;text-align: center;');
-	    copybtn.innerHTML = '<span>点击解析</span>'
-	    copybtn.onclick = function() {
-		analy(copybtn);
-	    }
+    var contentWrap = document.querySelector(".content-wrap");
+    var docheight = 0,
+        cury = 0;
+    var interval = setInterval(function () {
+        docheight = contentWrap.scrollHeight;
+        cury += 200;
+        window.scrollTo(0, cury);
+        if (cury >= docheight) {
+            window.scrollTo(0, 150);
+            clearInterval(interval);
 
-	    action_panel[0].appendChild(copybtn);
-
-	    var contentWrap = document.querySelector(".od-pc-detail-description");
-	    var docheight = 0,
-		cury = 0;
-	    var interval = setInterval(function() {
-		docheight = contentWrap.scrollHeight;
-		cury += 200;
-		window.scrollTo(0, cury);
-		if (cury >= docheight) {
-		    window.scrollTo(0, 150);
-		    clearInterval(interval);
-
-		    setTimeout(function() {
-			// copybtn.click();
-			analy(copybtn);
-		    }, 1500)
-		}
-	    }, 20);
-	}, 1500)
-	
+            setTimeout(function () {
+                // copybtn.click();
+                analy(copybtn);
+            }, 1500)
+        }
+    }, 20);
 };
+
+function ready() {
+    jQuery(document).ready(function () {
+        loaded();
+    });
+}
+
+// jQuery(document).ready(function () {
+if (location.href.indexOf('sk=consign') < 0) {
+    let timeout = setTimeout(() => {
+        let _代发 = document.querySelectorAll('.od-pc-offer-tab-item');
+        if (_代发.length > 0) {
+            for (const item of _代发) {
+                if (item.getAttribute('href') && item.getAttribute('href').indexOf('sk=consign') > -1) {
+                    location.href = item.getAttribute('href');
+                }
+            }
+            clearTimeout(timeout);
+        }
+    }, 300)
+} else {
+    setTimeout(() => {
+        ready();
+    }, 2000);
+}
+// });
