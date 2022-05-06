@@ -46,10 +46,8 @@ var analy = function (el) {
 
     if (document.execCommand('Copy')) {
         document.execCommand('Copy');
-        el.innerHTML = '<span style="color: AQUAMARINE; font-size: 13px;">点击解析(解析成功)</span>';
         layer.msg('解析成功', { icon: 1 });
     } else {
-        el.innerHTML = '<span style="color: MINTCREAM; font-size: 13px;">点击解析(解析失败)</span>';
         layer.msg('解析失败', { icon: 2 });
     }
     document.body.removeChild(input);
