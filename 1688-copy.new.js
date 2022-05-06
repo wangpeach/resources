@@ -66,6 +66,7 @@ function ready() {
         copybtn.onclick = function () {
             analy(copybtn);
         }
+        action_panel.append(copybtn);
 
         var contentWrap = document.body;
         var docheight = 0,
