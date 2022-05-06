@@ -56,8 +56,8 @@ var analy = function (el) {
 
 }
 
-
-window.onload = function () {
+function ready() {
+    jQuery(document).ready(function () {
     document.body.click();
 
     var copybtn = document.createElement('a');
@@ -84,11 +84,6 @@ window.onload = function () {
             }, 1500)
         }
     }, 20);
-};
-
-function ready() {
-    jQuery(document).ready(function () {
-        loaded();
     });
 }
 
