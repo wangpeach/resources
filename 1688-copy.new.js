@@ -1,3 +1,5 @@
+const { IgnorePlugin } = require("webpack");
+
 var analy = function (el) {
     var objs = {};
 
@@ -60,31 +62,35 @@ function ready() {
     jQuery(document).ready(function () {
         document.body.click();
 
-        var copybtn = document.createElement('a');
-        copybtn.classList.add('tool-item');
-        copybtn.innerHTML = '<span class="tool-item-text">点击</span><span class="tool-item-text">解析</span>';
-        copybtn.onclick = function () {
-            analy(copybtn);
-        }
-        action_panel.append(copybtn);
-
-        var contentWrap = document.body;
-        var docheight = 0,
-            cury = 0;
-        var interval = setInterval(function () {
-            docheight = contentWrap.scrollHeight;
-            cury += 200;
-            window.scrollTo(0, cury);
-            if (cury >= docheight) {
-                window.scrollTo(0, 150);
-                clearInterval(interval);
-
-                setTimeout(function () {
-                    // copybtn.click();
-                    analy(copybtn);
-                }, 1500)
+        var action_panel = document.querySelector('.tool-list');
+        if(action_panel) {
+            var copybtn = document.createElement('a');
+            copybtn.classList.add('tool-item');
+            copybtn.innerHTML = '<span class="tool-item-text">点击</span><span class="tool-item-text">解析</span>';
+            copybtn.onclick = function () {
+                analy(copybtn);
             }
-        }, 20);
+            action_panel.append(copybtn);
+    
+            var contentWrap = document.body;
+            var docheight = 0,
+                cury = 0;
+            var interval = setInterval(function () {
+                docheight = contentWrap.scrollHeight;
+                cury += 200;
+                window.scrollTo(0, cury);
+                if (cury >= docheight) {
+                    window.scrollTo(0, 150);
+                    clearInterval(interval);
+    
+                    setTimeout(function () {
+                        // copybtn.click();
+                        analy(copybtn);
+                    }, 1500)
+                }
+            }, 20);
+        }
+
     });
 }
 
